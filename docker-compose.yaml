@@ -3,8 +3,23 @@ services:
     build: .
     container_name: weatherworker-bridge
     environment:
-      - MQTT_URL=mqtt://xxxxxxxxxx:1883
-      - MQTT_USERNAME=xxxxxxxxx
-      - MQTT_PASSWORD=xxxxxxxxxxxxxxxxx
-      - MQTT_CLIENTID=weatherworker-bridge
-      - WEATHERWORKER_API_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+      - MQTT_URL=mqtt://xxxxxxxxxx:1883 # your mqtt broker
+      - MQTT_USERNAME=xxxxxxxxx # your mqtt username
+      - MQTT_PASSWORD=xxxxxxxxxxxxxxxxx # your mqtt password
+      - MQTT_CLIENTID=weatherworker-bridge # mqtt client id of this app
+      - WEATHERWORKER_API_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx # WeatherWorker API key
+    restart: always
+  # get rid of everything below this comment if you already have an mqtt server up
+  # if you do not you will have to run `idf.py menuconfig`, recompile then flash the edlavp firmware to use this
+  mosquitto:
+    image: eclipse-mosquitto:latest
+    container_name: mosquitto
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - ./docker/mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - ./docker/mosquitto/passwd:/mosquitto/config/passwd
+      - ./docker/mosquitto/data:/mosquitto/data
+      - ./docker/mosquitto/log:/mosquitto/log
+    restart: always
