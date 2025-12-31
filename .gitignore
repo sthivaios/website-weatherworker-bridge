@@ -1,0 +1,6 @@
+# node
+node_modules
+
+# misc
+.idea
+.DS_Store
