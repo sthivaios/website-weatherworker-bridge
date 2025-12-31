@@ -1,4 +1,4 @@
-import { postReading } from "../helpers/postReading";
+import { postReading } from "../helpers/postReading.js";
 
 interface MqttMessage {
   metadata: {

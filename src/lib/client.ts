@@ -1,5 +1,5 @@
 import mqtt from "mqtt";
-import { handleIncomingSensorMessage } from "../handlers/incomingSensorMessage";
+import { handleIncomingSensorMessage } from "../handlers/incomingSensorMessage.js";
 
 let client: mqtt.MqttClient | null = null;
 

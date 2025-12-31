@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-import { initMqtt } from "./lib/client";
+import { initMqtt } from "./lib/client.js";
 dotenv.config();
 
 initMqtt();
