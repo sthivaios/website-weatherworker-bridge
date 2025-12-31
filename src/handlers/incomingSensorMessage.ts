@@ -19,7 +19,7 @@ export async function handleIncomingSensorMessage(message: MqttMessage) {
   const readingToPost = {
     sensor: message.readout.sensor,
     value: message.readout.value,
-    timestamp: new Date(timestamp).toString(),
+    timestamp: timestamp.getTime().toString(),
   };
 
   await postReading(readingToPost);
