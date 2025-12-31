@@ -1,0 +1,10 @@
+services:
+  weatherworker-bridge:
+    build: .
+    container_name: weatherworker-bridge
+    environment:
+      - MQTT_URL=mqtt://xxxxxxxxxx:1883
+      - MQTT_USERNAME=xxxxxxxxx
+      - MQTT_PASSWORD=xxxxxxxxxxxxxxxxx
+      - MQTT_CLIENTID=weatherworker-bridge
+      - WEATHERWORKER_API_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
