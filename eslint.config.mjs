@@ -25,6 +25,7 @@ export default [
     rules: {
       // Turn off ESLint’s built-in no-unused-vars
       'no-unused-vars': 'off',
+      'no-console': 'warn',
 
       // Use TS-aware version instead
       '@typescript-eslint/no-unused-vars': [

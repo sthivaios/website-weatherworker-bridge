@@ -4,3 +4,6 @@ node_modules
 # misc
 .idea
 .DS_Store
+
+# environment vars
+.env
